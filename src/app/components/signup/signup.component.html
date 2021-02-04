@@ -5,14 +5,23 @@
       <mat-form-field class="half-width">
         <mat-label>First Name</mat-label>
         <input matInput formControlName="firstName" placeholder="First Name" type="text" required/>
+        <mat-error *ngIf="signUpErrors.firstName">
+          {{ signUpErrors.firstName }}
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="half-width">
         <mat-label>Middle Name</mat-label>
         <input matInput formControlName="middleName" placeholder="Middle Name" type="text" required/>
+        <mat-error *ngIf="signUpErrors.middleName">
+          {{ signUpErrors.middleName }}
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="half-width">
         <mat-label>Last Name</mat-label>
         <input matInput formControlName="lastName" placeholder="Last Name" type="text" required/>
+        <mat-error *ngIf="signUpErrors.lastName">
+          {{ signUpErrors.lastName }}
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="half-width">
         <input
@@ -23,6 +32,9 @@
           pattern="[0-9]*"
           required
         />
+        <mat-error *ngIf="signUpErrors.phonenum">
+          {{ signUpErrors.phonenum }}
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="half-width">
         <input
@@ -33,6 +45,9 @@
           email
           required
         />
+        <mat-error *ngIf="signUpErrors.email">
+          {{ signUpErrors.email }}
+        </mat-error>
       </mat-form-field>
       <button
       type="submit"
