@@ -1,0 +1,54 @@
+<h1 class="title">Sign Up Form</h1>
+<div class="container" fxLayout="column" fxLayoutGap="10px"> 
+  <div fxFlex>
+    <form [formGroup]="signUpForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="half-width">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" placeholder="First Name" type="text" required/>
+      </mat-form-field>
+      <mat-form-field class="half-width">
+        <mat-label>Middle Name</mat-label>
+        <input matInput formControlName="middleName" placeholder="Middle Name" type="text" required/>
+      </mat-form-field>
+      <mat-form-field class="half-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" placeholder="Last Name" type="text" required/>
+      </mat-form-field>
+      <mat-form-field class="half-width">
+        <input
+          matInput
+          formControlName="phonenum"
+          placeholder="Phone Number"
+          type="tel"
+          pattern="[0-9]*"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field class="half-width">
+        <input
+          matInput
+          formControlName="email"
+          placeholder="Email"
+          type="email"
+          email
+          required
+        />
+      </mat-form-field>
+      <button
+      type="submit"
+      mat-button
+      class="primary"
+      >
+      Submit
+      </button>
+  </form>
+  </div>
+
+  <div *ngIf="signUp">
+    <p>{{signUp.firstName}}</p>
+    <p>{{signUp.middleName}}</p>
+    <p>{{signUp.lastName}}</p>
+    <p>{{signUp.phonenum}}</p>
+    <p>{{signUp.email}}</p>
+  </div>
+</div>
