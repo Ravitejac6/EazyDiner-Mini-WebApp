@@ -12,6 +12,8 @@ import {DataService} from 'src/app/services/data.service';
 export class SignupComponent implements OnInit {
   signUpForm : FormGroup;
   signUp :SignUp;
+  users : Object[];
+  user : SignUp;
 
   @ViewChild("fform") signUpFormDirective; // To reset the form
 
@@ -24,6 +26,19 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.getDatafromAPI();
   }
+
+  addUser(){
+    const newUser = {
+      firstName : this.signUp.firstName,
+      middleName : this.signUp.middleName,
+      lastName : this.signUp.lastName,
+      phonenum : this.signUp.phonenum,
+      email : this.signUp.email
+    }
+    this.dataService.sendData(newUser).subscribe( user => 
+      {this.users.push(user)});
+  }
+
 
   signUpErrors = {
     firstName:"",
@@ -108,7 +123,11 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(){
+    console.log(1)
     this.signUp = this.signUpForm.value;
+    this.dataService.sendData(this.signUp).subscribe((res) => {
+      console.log(res);
+    });
     this.signUpForm.reset({
       firstName:"",
       middleName:"",
@@ -127,7 +146,6 @@ export class SignupComponent implements OnInit {
       } )
     )
   }
-
 
 
 }

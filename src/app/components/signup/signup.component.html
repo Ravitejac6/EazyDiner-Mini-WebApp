@@ -68,4 +68,12 @@
     <p>{{signUp.phonenum}}</p>
     <p>{{signUp.email}}</p>
   </div>
+
+  <div *ngFor="let user of users">
+    <p>{{user.firstName}}</p>
+    <p>{{user.middleName}}</p>
+    <p>{{user.lastName}}</p>
+    <p>{{user.email}}</p>
+    <p>{{user.phone}}</p>
+  </div>
 </div>
