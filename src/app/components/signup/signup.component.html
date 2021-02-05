@@ -1,7 +1,8 @@
 <h1 class="title">Sign Up Form</h1>
 <div class="container" fxLayout="column" fxLayoutGap="10px"> 
-  <div fxFlex>
-    <form [formGroup]="signUpForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+  <div fxFlex> 
+    <!-- SignUp form using the reactiveForms Validators -->
+    <form novalidate [formGroup]="signUpForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <mat-form-field class="half-width">
         <mat-label>First Name</mat-label>
         <input matInput formControlName="firstName" placeholder="First Name" type="text" required/>
@@ -53,12 +54,13 @@
       type="submit"
       mat-button
       class="primary"
+      [disabled]="signUpForm.invalid"
       >
       Submit
       </button>
   </form>
   </div>
-
+  <!-- Printing the form data -->
   <div *ngIf="signUp">
     <p>{{signUp.firstName}}</p>
     <p>{{signUp.middleName}}</p>
