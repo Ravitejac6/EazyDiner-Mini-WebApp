@@ -12,7 +12,7 @@ import {DataService} from 'src/app/services/data.service';
 export class SignupComponent implements OnInit {
   signUpForm : FormGroup;
   signUp :SignUp;
-  users : Object[];
+  users : SignUp[] = [];
   user : SignUp;
 
   @ViewChild("fform") signUpFormDirective; // To reset the form
@@ -25,6 +25,7 @@ export class SignupComponent implements OnInit {
   
   ngOnInit() {
     this.getDatafromAPI();
+    console.log(this.users);
   }
 
   addUser(){
@@ -35,8 +36,9 @@ export class SignupComponent implements OnInit {
       phonenum : this.signUp.phonenum,
       email : this.signUp.email
     }
-    this.dataService.sendData(newUser).subscribe( user => 
-      {this.users.push(user)});
+    // this.dataService.sendData(newUser).subscribe( user => 
+    //   {this.users.push(user)});
+    this.dataService.sendData(newUser).subscribe( user => console.log(user));
   }
 
 
@@ -123,7 +125,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(1)
+    console.log("Form data submitted")
     this.signUp = this.signUpForm.value;
     this.dataService.sendData(this.signUp).subscribe((res) => {
       console.log(res);
@@ -140,7 +142,9 @@ export class SignupComponent implements OnInit {
 
   getDatafromAPI(){
     this.dataService.getData().subscribe((response)=>{
-        console.log("Response from API",response)
+       // console.log("Response from API",response);
+        response.forEach(value => this.users.push(value));
+
       }, ((error) =>{
         console.log("error is", error)
       } )
