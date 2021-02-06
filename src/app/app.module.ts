@@ -10,11 +10,15 @@ import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/ma
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

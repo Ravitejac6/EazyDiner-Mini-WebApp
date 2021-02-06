@@ -28,18 +28,16 @@ export class SignupComponent implements OnInit {
     console.log(this.users);
   }
 
-  addUser(){
-    const newUser = {
-      firstName : this.signUp.firstName,
-      middleName : this.signUp.middleName,
-      lastName : this.signUp.lastName,
-      phonenum : this.signUp.phonenum,
-      email : this.signUp.email
-    }
-    // this.dataService.sendData(newUser).subscribe( user => 
-    //   {this.users.push(user)});
-    this.dataService.sendData(newUser).subscribe( user => console.log(user));
-  }
+  // addUser(){
+  //   const newUser = {
+  //     firstName : this.signUp.firstName,
+  //     middleName : this.signUp.middleName,
+  //     lastName : this.signUp.lastName,
+  //     phonenum : this.signUp.phonenum,
+  //     email : this.signUp.email
+  //   }
+  //   this.dataService.sendData(newUser).subscribe( user => console.log(user));
+  // }
 
 
   signUpErrors = {
@@ -150,6 +148,5 @@ export class SignupComponent implements OnInit {
       } )
     )
   }
-
 
 }
