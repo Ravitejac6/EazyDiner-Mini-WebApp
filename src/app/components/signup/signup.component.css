@@ -1,8 +1,22 @@
 .half-width {
-  width: 30%;
-  margin: 20px;
+  width: 35%;
+  margin: 0 30% 10px 20%;
 }
 
 .container {
   width: 100%;
+}
+
+.title {
+  text-align: center;
+}
+.submit-btn {
+  display: flex;
+  justify-items: center;
+  margin: 0 30% 0 30%;
+}
+.form-container {
+  justify-content: center;
+  margin-left: 12%;
+  margin-top: 5%;
 }
