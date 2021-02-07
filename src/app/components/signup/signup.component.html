@@ -40,6 +40,12 @@
             {{ signUpErrors.email }}
           </mat-error>
         </mat-form-field>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="password" placeholder="Password" type="password" required/>
+          <mat-error *ngIf="signUpErrors.password">
+            {{ signUpErrors.password }}
+          </mat-error>
+        </mat-form-field>
         <button type="submit" mat-flat-button class="primary submit-btn" [disabled]="signUpForm.invalid">Submit</button>
     </form>
     </div>  

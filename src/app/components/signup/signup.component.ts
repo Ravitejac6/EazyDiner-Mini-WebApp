@@ -45,7 +45,8 @@ export class SignupComponent implements OnInit {
     middleName:"",
     lastName:"",
     phonenum:"",
-    email:""
+    email:"",
+    password:""
   }
 
   validationMessages = {
@@ -72,6 +73,9 @@ export class SignupComponent implements OnInit {
       required: "Email is required",
       email: "Email is not in valid format",
     },
+    password:{
+      required:"Password is required"
+    }
   }
   createForm(){
     this.signUpForm = this.fb.group({
@@ -94,7 +98,8 @@ export class SignupComponent implements OnInit {
         ]
       ],
       phonenum:[0,[Validators.required,Validators.pattern]],
-      email:["",[Validators.required,Validators.email]]
+      email:["",[Validators.required,Validators.email]],
+      password:["",Validators.required]
     });
 
     this.signUpForm.valueChanges.subscribe((data) => this.onValueChanged(data));
@@ -133,7 +138,8 @@ export class SignupComponent implements OnInit {
       middleName:"",
       lastName:"",
       phonenum:0,
-      email:""
+      email:"",
+      password:""
     });
     this.signUpFormDirective.resetForm();
   }
