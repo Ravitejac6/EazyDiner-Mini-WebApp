@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from 'ngx-toastr';
 
 
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { timeout } from 'rxjs/operators';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,14 @@ import { LoginComponent } from './components/login/login.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     HttpClientModule  ,
-    MatToolbarModule
+    MatToolbarModule,
+    ToastrModule.forRoot({
+      timeOut:3000,
+      progressBar:true,
+      progressAnimation:'increasing',
+      preventDuplicates:true
+    }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
