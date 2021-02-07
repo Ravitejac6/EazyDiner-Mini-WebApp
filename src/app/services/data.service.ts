@@ -37,4 +37,14 @@ export class DataService {
     );
   }
 
+  checkUser(data){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'my-auth-token'
+      })
+    };
+    return this.http.post('http://localhost:3000/api/login',data,httpOptions);
+  }
+
 }
