@@ -32,11 +32,12 @@ export class LoginComponent implements OnInit {
 
   submit(){
     this.login = this.loginForm.value;
-    this.dataService.checkUser(this.login).subscribe((res) => console.log(res));
+    this.dataService.checkUser(this.login).subscribe((res) => {
+      console.log(res);
+      this.route.navigateByUrl('/')});
   }
 
-
-
+  
   goToHome(){
     this.route.navigateByUrl('/');
   }
