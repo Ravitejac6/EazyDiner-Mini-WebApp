@@ -40,8 +40,10 @@ export class LoginComponent implements OnInit {
         this.showErrorMessage();
         this.route.navigateByUrl('/signup');
       }
-      else if(msg === 'User existed password correct')
+      else if(msg === 'User existed password correct'){
+        this.showSuccessMessage();
         this.route.navigateByUrl('/');
+      }
       else if(msg === 'Password Wrong')
         this.showWarningMessage();
     })
@@ -63,6 +65,14 @@ export class LoginComponent implements OnInit {
 
   showErrorMessage() {
     this.toastr.error('User not existed','Invalid User',{
+      timeOut:3000,
+      progressBar: true,
+      progressAnimation : 'increasing',
+    });
+  }
+
+  showSuccessMessage() {
+    this.toastr.success('Successfully Logged in','User login',{
       timeOut:3000,
       progressBar: true,
       progressAnimation : 'increasing',

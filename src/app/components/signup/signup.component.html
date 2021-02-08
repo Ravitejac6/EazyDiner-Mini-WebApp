@@ -6,7 +6,7 @@
   <div class="form-container" fxLayout="row" fxLayoutGap="10px"> 
     <div fxFlex> 
       <!-- SignUp form using the reactiveForms Validators -->
-      <mat-card>
+      <mat-card class="card-area">
         <mat-card-title>
           Registration Form
         </mat-card-title>
@@ -60,13 +60,13 @@
 
 
   <!-- Printing the form data -->
-  <div *ngIf="signUp">
+  <!-- <div *ngIf="signUp">
     <p>{{signUp.firstName}}</p>
     <p>{{signUp.middleName}}</p>
     <p>{{signUp.lastName}}</p>
     <p>{{signUp.phonenum}}</p>
     <p>{{signUp.email}}</p>
-  </div>
+  </div> -->
 
   <!-- All Users Display -->
   <!-- <div *ngFor="let user of users">

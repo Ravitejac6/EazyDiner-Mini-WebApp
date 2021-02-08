@@ -24,3 +24,7 @@
 .home-btn {
   margin-left: 85%;
 }
+
+.mat-icon {
+  transform: scale(0.7);
+}

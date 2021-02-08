@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { SignUp } from 'src/app/shared/signup';
 import {DataService} from 'src/app/services/data.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class SignupComponent implements OnInit {
   @ViewChild("fform") signUpFormDirective; // To reset the form
 
 
-  constructor(private fb: FormBuilder,private dataService:DataService,private toastr: ToastrService) { 
+  constructor(private fb: FormBuilder,private dataService:DataService,private toastr: ToastrService,private route:Router) { 
     this.createForm();
   }
 
@@ -133,6 +134,10 @@ export class SignupComponent implements OnInit {
     this.signUp = this.signUpForm.value;
     this.dataService.sendData(this.signUp).subscribe((res) => {
       console.log(res);
+      let msg = res['msg'];
+      if(msg === "Successfully added User"){
+        this.route.navigateByUrl('/');
+      }
     });
     this.showSuccess();
     this.signUpForm.reset({
