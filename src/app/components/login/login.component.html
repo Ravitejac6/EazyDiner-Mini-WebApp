@@ -5,16 +5,23 @@
 
 <div class="container">
   <div class="form-container">
-    <form novalidate [formGroup]="loginForm" (ngSubmit)="submit()">
-      <mat-form-field class="half-width">
-        <input matInput formControlName="email" placeholder="Email" type="email" required/>
-      </mat-form-field>
-      <mat-form-field class="half-width">
-        <input matInput formControlName="password" placeholder="Password" type="password" required/>
-      </mat-form-field>
-      <button type="submit" mat-flat-button class="primary submit-btn">Submit</button>
-    </form>
-
+    <mat-card class="card-area">
+      <mat-card-title>
+        Login Form
+      </mat-card-title>
+      <mat-card-content>
+        <form novalidate [formGroup]="loginForm" (ngSubmit)="submit()">
+          <mat-form-field class="half-width">
+            <input matInput formControlName="email" placeholder="Email" type="email" required/>
+          </mat-form-field>
+          <mat-form-field class="half-width">
+            <input matInput formControlName="password" placeholder="Password" type="password" required/>
+          </mat-form-field>
+          <button type="submit" mat-flat-button class="primary submit-btn">Submit</button>
+        </form>
+    
+      </mat-card-content>
+    </mat-card>
   </div>
 
 </div>

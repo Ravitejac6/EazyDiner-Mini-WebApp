@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       }
       else if(msg === 'User existed password correct'){
         this.showSuccessMessage();
-        this.route.navigateByUrl('/');
+        this.route.navigateByUrl('/food');
       }
       else if(msg === 'Password Wrong')
         this.showWarningMessage();

@@ -28,3 +28,9 @@
 .mat-icon {
   transform: scale(0.7);
 }
+
+.card-area {
+  margin-right: 300px;
+  margin-left: 80px;
+  padding-bottom: 20px;
+}
