@@ -34,13 +34,7 @@ import { timeout } from 'rxjs/operators';
     FlexLayoutModule,
     HttpClientModule  ,
     MatToolbarModule,
-    ToastrModule.forRoot({
-      timeOut:3000,
-      progressBar:true,
-      progressAnimation:'increasing',
-      preventDuplicates:true
-    }
-    )
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -159,7 +159,11 @@ export class SignupComponent implements OnInit {
 
 
   showSuccess() {
-    this.toastr.success('User Added', 'Success!');
+    this.toastr.success('User Added', 'Success!',{
+      timeOut:3000,
+      progressBar:true,
+      progressAnimation:'increasing'
+    });
   }
 
 }

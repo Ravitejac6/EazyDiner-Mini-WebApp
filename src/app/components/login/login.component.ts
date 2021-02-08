@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { DataService } from 'src/app/services/data.service';
 import {Login} from 'src/app/shared/login';
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   loginForm : FormGroup;
   login : Login;
 
-  constructor(private route: Router,private fb:FormBuilder,private dataService:DataService) {
+  constructor(private route: Router,private fb:FormBuilder,private dataService:DataService, private toastr: ToastrService) {
     this.createLoginForm();
    }
 
@@ -33,13 +35,38 @@ export class LoginComponent implements OnInit {
   submit(){
     this.login = this.loginForm.value;
     this.dataService.checkUser(this.login).subscribe((res) => {
-      console.log(res);
-      this.route.navigateByUrl('/')});
+      const msg = res['msg'];
+      if(msg === 'user not existed')
+        this.showErrorMessage();
+      else if(msg === 'User existed password correct')
+        this.route.navigateByUrl('/');
+      else if(msg === 'Password Wrong')
+        this.showWarningMessage();
+      else
+        this.route.navigateByUrl('/signup');
+    })
   }
-
   
   goToHome(){
     this.route.navigateByUrl('/');
+  }
+
+  // Toastr messages functions
+
+  showWarningMessage() {
+    this.toastr.warning('Try again','Invalid Password',{
+      timeOut:3000,
+      progressBar: true,
+      progressAnimation : 'increasing',
+    });
+  }
+
+  showErrorMessage() {
+    this.toastr.error('check mail id','Invalid Mail',{
+      timeOut:3000,
+      progressBar: true,
+      progressAnimation : 'increasing',
+    });
   }
 
 }
