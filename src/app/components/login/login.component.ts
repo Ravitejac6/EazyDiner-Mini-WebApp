@@ -36,14 +36,14 @@ export class LoginComponent implements OnInit {
     this.login = this.loginForm.value;
     this.dataService.checkUser(this.login).subscribe((res) => {
       const msg = res['msg'];
-      if(msg === 'user not existed')
+      if(msg === 'user not existed'){
         this.showErrorMessage();
+        this.route.navigateByUrl('/signup');
+      }
       else if(msg === 'User existed password correct')
         this.route.navigateByUrl('/');
       else if(msg === 'Password Wrong')
         this.showWarningMessage();
-      else
-        this.route.navigateByUrl('/signup');
     })
   }
   
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
   }
 
   showErrorMessage() {
-    this.toastr.error('check mail id','Invalid Mail',{
+    this.toastr.error('User not existed','Invalid User',{
       timeOut:3000,
       progressBar: true,
       progressAnimation : 'increasing',
