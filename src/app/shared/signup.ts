@@ -2,7 +2,7 @@ export class SignUp{
     firstName: string;
     lastName: string;
     middleName:string;
-    phonenum:number;
+    phonenum:string;
     email:string;
     password:string;
 }

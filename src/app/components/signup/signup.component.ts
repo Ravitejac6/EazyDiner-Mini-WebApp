@@ -30,18 +30,6 @@ export class SignupComponent implements OnInit {
     console.log(this.users);
   }
 
-  // addUser(){
-  //   const newUser = {
-  //     firstName : this.signUp.firstName,
-  //     middleName : this.signUp.middleName,
-  //     lastName : this.signUp.lastName,
-  //     phonenum : this.signUp.phonenum,
-  //     email : this.signUp.email
-  //   }
-  //   this.dataService.sendData(newUser).subscribe( user => console.log(user));
-  // }
-
-
   signUpErrors = {
     firstName:"",
     middleName:"",
@@ -69,7 +57,7 @@ export class SignupComponent implements OnInit {
     },
     phonenum: {
       required: "Phone number is required",
-      pattern: "Phone number must contains only numbers"
+      pattern: "Phone number must contains only numbers",
     },
     email: {
       required: "Email is required",
@@ -99,7 +87,7 @@ export class SignupComponent implements OnInit {
           Validators.maxLength(25)
         ]
       ],
-      phonenum:[0,[Validators.required,Validators.pattern]],
+      phonenum:["",[Validators.required,Validators.pattern]],
       email:["",[Validators.required,Validators.email]],
       password:["",Validators.required]
     });
@@ -144,7 +132,7 @@ export class SignupComponent implements OnInit {
       firstName:"",
       middleName:"",
       lastName:"",
-      phonenum:0,
+      phonenum:"",
       email:"",
       password:""
     });
